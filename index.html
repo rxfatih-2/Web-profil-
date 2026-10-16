@@ -3,181 +3,462 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profil - M.Rizki Akbar</title>
+<title>Rizki Akbar — Frontend Developer & Creative Coder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- LOGO KECIL DI ATAS -->
+  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <div class="logo">RXF</div>
-    <div class="brand">M.Rizki Akbar</div>
+    <div class="nav-container">
+      <a href="#home" class="nav-brand">
+        <span class="brand-mark">RA</span>
+        <span class="brand-text">Rizki Akbar</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
-  <!-- HERO SECTION DENGAN FOTO -->
-  <header class="hero">
-    <div class="hero-content">
-      <div class="photo-wrapper" id="photoWrapper">
-        <img src="Assets/fr.jpg" alt="Foto Profil">
-      </div>
-      <div class="hero-text" id="heroText">
-        <h1>M.Rizki Akbar</h1>
-        <div class="subtitle">Student at Syadam Vocational High School</div>
-        <p>
-          Seorang murid yang memiliki cita-cita menjadi seorang engineer 
-          dan pesaing Elon Musk. 🚀
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span> Available for freelance & collaboration
+        </div>
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Rizki Akbar</span>
+        </h1>
+        <p class="hero-role">
+          <span id="typed-text"></span><span class="cursor">|</span>
         </p>
-        <a href="#biodata" class="btn">Kenali Saya →</a>
+        <p class="hero-desc">
+          Frontend developer & creative coder dari Bojonggede. Saya membangun 
+          website yang <strong>bukan cuma jalan, tapi juga berkesan</strong> — 
+          dengan design yang bersih, animasi halus, dan attention to detail.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            Lihat Project
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Hubungi Saya</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num" data-count="5">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Project Selesai</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="15">0</span>
+            <span class="stat-label">Tahun Usia</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="100">0</span><span class="stat-plus">%</span>
+            <span class="stat-label">Passion</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="card-window">
+            <div class="window-dots"><span></span><span></span><span></span></div>
+            <span class="window-title">rxfatih.js</span>
+          </div>
+          <pre class="code-block"><code><span class="c-key">const</span> <span class="c-var">rizki</span> = {
+  <span class="c-prop">role</span>: <span class="c-str">"Frontend Dev"</span>,
+  <span class="c-prop">skills</span>: [<span class="c-str">"HTML"</span>, <span class="c-str">"CSS"</span>, <span class="c-str">"JS"</span>],
+  <span class="c-prop">goal</span>: <span class="c-str">"Build cool things"</span>,
+  <span class="c-prop">motto</span>: <span class="c-str">"Keep learning"</span>
+};</code></pre>
+        </div>
       </div>
     </div>
+    <a href="#about" class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </a>
   </header>
 
-  <!-- BIODATA -->
-  <section class="biodata-section" id="biodata">
+  <!-- ABOUT -->
+  <section class="section" id="about">
     <div class="container">
-      <h2 class="section-title">Biodata Singkat</h2>
-      <div class="biodata-grid">
-        <div class="bio-card reveal">
-          <h3>Nama Lengkap</h3>
-          <p>M.Rizki Akbar</p>
+      <div class="section-head reveal">
+        <span class="section-tag">01 — About</span>
+        <h2 class="section-title">Di balik <span class="gradient-text">layar</span> ini</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="lead">
+            Saya <strong>M. Rizki Akbar</strong>, seorang siswa SMK Syadam yang 
+            jatuh cinta pada dunia <em>web development</em> sejak pertama kali 
+            menulis <code>&lt;h1&gt;Hello World&lt;/h1&gt;</code>.
+          </p>
+          <p>
+            Buat saya, coding bukan sekadar pelajaran di sekolah — ini cara saya 
+            bercerita. Setiap project adalah kanvas, setiap animasi adalah emosi, 
+            dan setiap detail kecil adalah bentuk respect ke user yang akan 
+            menggunakannya.
+          </p>
+          <p>
+            Saat ini saya fokus mendalami <strong>frontend development</strong> — 
+            membangun interface yang indah, responsif, dan punya <em>personality</em>. 
+            Cita-cita besar saya? Menjadi engineer yang membangun produk yang 
+            dipakai jutaan orang. 🌍
+          </p>
+
+          <div class="about-info">
+            <div class="info-item">
+              <span class="info-label">📍 Lokasi</span>
+              <span class="info-value">Bojonggede, Indonesia</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">🎓 Sekolah</span>
+              <span class="info-value">SMK Syadam</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">💼 Fokus</span>
+              <span class="info-value">Frontend Development</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">🚀 Status</span>
+              <span class="info-value">Open to opportunities</span>
+            </div>
+          </div>
         </div>
-        <div class="bio-card reveal">
-          <h3>Tempat, Tanggal Lahir</h3>
-          <p>Jakarta, 2 Oktober 2009</p>
+
+        <div class="about-visual reveal">
+          <div class="profile-frame">
+            <img src="Assets/fr.jpg" alt="Rizki Akbar" onerror="this.src='https://ui-avatars.com/api/?name=Rizki+Akbar&size=400&background=c810b0&color=fff&bold=true&font-size=0.4'">
+            <div class="frame-deco"></div>
+          </div>
+          <div class="floating-badge badge-1">
+            <span class="badge-emoji">💡</span>
+            <div>
+              <strong>Problem Solver</strong>
+              <small>Debug & fix bugs</small>
+            </div>
+          </div>
+          <div class="floating-badge badge-2">
+            <span class="badge-emoji">🎨</span>
+            <div>
+              <strong>Pixel Perfect</strong>
+              <small>Detail-oriented</small>
+            </div>
+          </div>
         </div>
-        <div class="bio-card reveal">
-          <h3>Cita-Cita</h3>
-          <p>Engineer</p>
+      </div>
+    </div>
+                </section>
+                <!-- SKILLS -->
+  <section class="section section-dark" id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">02 — Skills</span>
+        <h2 class="section-title">Senjata <span class="gradient-text">utama</span> saya</h2>
+        <p class="section-sub">Tools & teknologi yang saya pakai untuk membangun project</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
+          <h3>HTML5</h3>
+          <p>Semantic & accessible markup</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+          <span class="skill-percent">95%</span>
         </div>
-        <div class="bio-card reveal">
-          <h3>Pendidikan</h3>
-          <p>SMK Syadam</p>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          </div>
+          <h3>CSS3</h3>
+          <p>Flexbox, Grid, Animation, Responsive</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          <span class="skill-percent">90%</span>
         </div>
-        <div class="bio-card reveal">
-          <h3>Hobi</h3>
-          <p>Membaca, Menulis, Traveling</p>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>JavaScript</h3>
+          <p>DOM, ES6+, Interactivity</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          <span class="skill-percent">85%</span>
         </div>
-        <div class="bio-card reveal">
-          <h3>Motto Hidup</h3>
-          <p>"Terus belajar, terus berkembang"</p>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Responsive Design</h3>
+          <p>Mobile-first & adaptive layout</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          <span class="skill-percent">88%</span>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>UI/UX Thinking</h3>
+          <p>User-centered design approach</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          <span class="skill-percent">80%</span>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <h3>Git & GitHub</h3>
+          <p>Version control & deployment</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          <span class="skill-percent">75%</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TIMELINE PERJALANAN -->
-  <section class="timeline-section">
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
     <div class="container">
-      <h2 class="section-title">Perjalanan Hidup</h2>
+      <div class="section-head reveal">
+        <span class="section-tag">03 — Projects</span>
+        <h2 class="section-title">Yang sudah saya <span class="gradient-text">bangun</span></h2>
+        <p class="section-sub">Bukti nyata — bukan cuma teori di kelas</p>
+      </div>
+
+      <div class="projects-grid">
+        <a href="https://rxfatih-2.github.io/Undangan-pernikahan-/" target="_blank" class="project-card featured reveal">
+          <div class="project-thumb">
+            <div class="thumb-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots"><span></span><span></span><span></span></div>
+                <span class="mockup-url">rxfatih-2.github.io/Undangan-pernikahan-</span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-40"></div>
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-50"></div>
+                <div class="mockup-deco">ꦱꦼꦫꦠ꧀ꦲꦸꦊꦩ꧀</div>
+              </div>
+            </div>
+            <div class="project-overlay">
+              <span class="project-cta">
+                Kunjungi Website
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-tag">Featured</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3>Serat Ulem Kasmaran — Undangan Pernikahan</h3>
+            <p>
+              Website undangan pernikahan digital dengan nuansa budaya Jawa. 
+              Dilengkapi aksara Jawa, gamelan, animasi scroll halus, 
+              galeri foto, dan countdown acara. Dibangun full dengan 
+              HTML, CSS, dan JavaScript vanilla.
+            </p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Cultural Design</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="project-card reveal">
+          <div class="project-thumb project-placeholder">
+            <span class="placeholder-icon">🚧</span>
+            <span class="placeholder-text">Coming Soon</span>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-tag">In Progress</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3>Project Berikutnya</h3>
+            <p>Sedang dikerjakan — stay tuned! Setiap project baru akan saya publish di GitHub.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-thumb project-placeholder">
+            <span class="placeholder-icon">🚀</span>
+            <span class="placeholder-text">Coming Soon</span>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-tag">Planning</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3>Project Selanjutnya</h3>
+            <p>Ide sedang matang — saya percaya proses lebih penting dari hasil instan.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-cta reveal">
+        <a href="https://github.com/rxfatih-2" target="_blank" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+          Lihat GitHub Saya
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="section section-dark" id="journey">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">04 — Journey</span>
+        <h2 class="section-title">Perjalanan <span class="gradient-text">sejauh ini</span></h2>
+        <p class="section-sub">Setiap langkah adalah pelajaran berharga</p>
+      </div>
+
       <div class="timeline">
-        <div class="timeline-item">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="year">2021</span>
+            <span class="timeline-year">2021</span>
             <h3>Lulus SD</h3>
-            <p>Menyelesaikan pendidikan SD di SDN Bojonggede 05.</p>
+            <p>Menuntaskan pendidikan dasar di SDN Bojonggede 05 dengan kenangan indah dan persahabatan yang tulus.</p>
           </div>
         </div>
-        <div class="timeline-item">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="year">2026</span>
+            <span class="timeline-year">2026</span>
             <h3>Lulus SMP</h3>
-            <p>Menyelesaikan pendidikan SMP dengan hasil memuaskan.</p>
+            <p>Menyelesaikan pendidikan menengah pertama dengan hasil memuaskan. Di sini mulai ketemu ketertarikan dengan teknologi.</p>
           </div>
         </div>
-        <div class="timeline-item">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="year">2026</span>
+            <span class="timeline-year">2026</span>
             <h3>Masuk SMK Syadam</h3>
-            <p>Mulai menempuh pendidikan di SMK Syadam untuk mengejar cita-cita menjadi engineer.</p>
+            <p>Mulai menekuni dunia <strong>software engineering</strong>. Aktif belajar coding setiap hari dan mengerjakan project nyata.</p>
           </div>
         </div>
-        <div class="timeline-item">
+
+        <div class="timeline-item timeline-future reveal">
+          <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <span class="year">???</span>
+            <span class="timeline-year">Next →</span>
             <h3>Menjadi Engineer Hebat</h3>
-            <p>Target masa depan: menjadi engineer sukses dan bersaing di kancah internasional.</p>
+            <p>Target jangka panjang: membangun produk digital yang dipakai jutaan orang dan bersaing di kancah internasional. 🌍</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE -->
-  <section class="quote-section">
-    <blockquote id="quote">
-      "Setiap orang memiliki cerita. Tugas kita adalah memastikan cerita itu 
-      memiliki akhir yang bahagia."
-      <cite>— M.Rizki Akbar (RxFatih)</cite>
-    </blockquote>
-  </section>
-
-  <!-- KONTAK & SOSIAL MEDIA -->
-  <section class="contact-section" id="kontak">
+  <!-- CONTACT -->
+  <section class="section" id="contact">
     <div class="container">
-      <h2 class="section-title">Hubungi Saya</h2>
-      <p class="contact-desc">Yuk, terhubung dengan saya di sosial media!</p>
-      
-      <div class="social-grid">
-        <!-- Instagram -->
-        <a href="https://instagram.com/rx_fatih" target="_blank" class="social-card instagram">
-          <div class="social-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-          </div>
-          <h3>Instagram</h3>
-          <p>@rx_fatih</p>
-        </a>
-
-        <!-- TikTok -->
-        <a href="https://tiktok.com/@rxfatih5" target="_blank" class="social-card tiktok">
-          <div class="social-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
-            </svg>
-          </div>
-          <h3>TikTok</h3>
-          <p>@rxfatih5</p>
-        </a>
-      </div>
-
-      <!-- Info Kontak Tambahan -->
-      <div class="contact-info">
-        <div class="info-item">
-          <span class="info-icon">📧</span>
-          <span>rxfatih2@email.com</span>
+      <div class="contact-wrapper reveal">
+        <div class="contact-glow"></div>
+        <div class="section-head contact-head">
+          <span class="section-tag">05 — Contact</span>
+          <h2 class="section-title">Punya ide? <span class="gradient-text">Ayo kolaborasi</span></h2>
+          <p class="section-sub">
+            Saya selalu terbuka untuk project baru, kolaborasi, atau sekadar ngobrol soal teknologi.
+          </p>
         </div>
-        <div class="info-item">
-          <span class="info-icon">📱</span>
-          <span>+62 882-2662-1362</span>
-        </div>
-        <div class="info-item">
-          <span class="info-icon">📍</span>
-          <span>Bojonggede, Indonesia</span>
+
+        <div class="contact-grid">
+          <a href="mailto:rxfatih2@gmail.com" class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-info">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">rxfatih2@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://wa.me/6288226621362" target="_blank" class="contact-card">
+            <div class="contact-icon">💬</div>
+            <div class="contact-info">
+              <span class="contact-label">WhatsApp</span>
+              <span class="contact-value">+62 882-2662-1362</span>
+            </div>
+          </a>
+
+          <a href="https://instagram.com/rx_fatih" target="_blank" class="contact-card">
+            <div class="contact-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Instagram</span>
+              <span class="contact-value">@rx_fatih</span>
+            </div>
+          </a>
+
+          <a href="https://tiktok.com/@rxfatih5" target="_blank" class="contact-card">
+            <div class="contact-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">TikTok</span>
+              <span class="contact-value">@rxfatih5</span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">RXF</div>
-      <p class="footer-name">M.Rizki Akbar</p>
-      <div class="footer-socials">
-        <a href="https://instagram.com/rx_fatih" target="_blank" title="Instagram">📷</a>
-        <a href="https://tiktok.com/@rxfatih5" target="_blank" title="TikTok">🎵</a>
-        <a href="mailto:rxfatih2@email.com" title="Email">✉️</a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-mark">RA</span>
+          <p>Building the web, one line at a time.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="https://github.com/rxfatih-2" target="_blank">GitHub</a>
+        </div>
+        <div class="footer-copy">
+          <p>&copy; 2026 <strong>Rizki Akbar</strong>. Crafted with 💜 &amp; lots of ☕</p>
+        </div>
       </div>
-      <p class="footer-copy">&copy; 2024 <span>RxFatih</span>. All Rights Reserved.</p>
-      <p class="footer-made">Made with ❤️ by M.Rizki Akbar</p>
     </div>
   </footer>
 
   <audio id="bgMusic" loop playsinline preload="auto">
-  <source src="Assets/bs.mp3" type="audio/mpeg">
+    <source src="backsound.mp3" type="audio/mpeg">
   </audio>
 
   <script src="script.js"></script>
 </body>
-      </html>
+</html>
