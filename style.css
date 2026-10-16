@@ -348,7 +348,7 @@ a { text-decoration: none; color: inherit; }
   margin-top: -4px;
 }
 
-/* ========== HERO VISUAL (CODE CARD) ========== */
+/* ========== HERO VISUAL ========== */
 .hero-visual {
   position: relative;
   display: flex;
@@ -440,8 +440,7 @@ a { text-decoration: none; color: inherit; }
   50% { transform: scaleY(1); transform-origin: top; }
   51% { transform: scaleY(1); transform-origin: bottom; }
   100% { transform: scaleY(0); transform-origin: bottom; }
-}
-/* ========== SECTIONS ========== */
+  }/* ========== SECTIONS ========== */
 .section {
   padding: 100px 0;
   position: relative;
@@ -550,10 +549,12 @@ a { text-decoration: none; color: inherit; }
   font-size: 0.92rem;
 }
 
+/* ========== ABOUT VISUAL (FOTO + BADGE) ========== */
 .about-visual {
   position: relative;
   display: flex;
   justify-content: center;
+  padding: 60px 20px;
 }
 
 .profile-frame {
@@ -589,6 +590,7 @@ a { text-decoration: none; color: inherit; }
   100% { transform: rotate(360deg); }
 }
 
+/* ========== FLOATING BADGE (POSISI BARU — GAK NUTUPIN MUKA) ========== */
 .floating-badge {
   position: absolute;
   display: flex;
@@ -600,11 +602,20 @@ a { text-decoration: none; color: inherit; }
   border-radius: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.badge-1 { 
+  top: -40px; 
+  left: -20px; 
   animation: badgeFloat 4s ease-in-out infinite;
 }
 
-.badge-1 { top: 20px; left: -30px; }
-.badge-2 { bottom: 40px; right: -30px; animation-delay: 2s; }
+.badge-2 { 
+  bottom: -40px; 
+  right: -20px; 
+  animation: badgeFloat 4s ease-in-out infinite 2s;
+}
 
 @keyframes badgeFloat {
   0%, 100% { transform: translateY(0); }
@@ -612,17 +623,17 @@ a { text-decoration: none; color: inherit; }
 }
 
 .badge-emoji { font-size: 1.5rem; }
+
 .floating-badge strong {
   display: block;
   font-size: 0.85rem;
   color: var(--text);
 }
+
 .floating-badge small {
   font-size: 0.72rem;
   color: var(--text-dim);
-}
-
-/* ========== SKILLS ========== */
+}/* ========== SKILLS ========== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -846,6 +857,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .placeholder-icon { font-size: 3rem; }
+
 .placeholder-text {
   font-family: 'Space Grotesk', monospace;
   font-size: 0.85rem;
@@ -916,7 +928,7 @@ a { text-decoration: none; color: inherit; }
   margin-top: 40px;
 }
 
-/* ========== JOURNEY TIMELINE ========== */
+/* ========== JOURNEY ========== */
 .timeline {
   position: relative;
   max-width: 800px;
@@ -1134,9 +1146,7 @@ a { text-decoration: none; color: inherit; }
 .reveal.show {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* ========== RESPONSIVE ========== */
+}/* ========== RESPONSIVE ========== */
 @media (max-width: 968px) {
   .hero-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .hero-actions { justify-content: center; }
@@ -1176,7 +1186,33 @@ a { text-decoration: none; color: inherit; }
   .about-info { grid-template-columns: 1fr; }
   .contact-wrapper { padding: 40px 24px; }
   .profile-frame { width: 260px; height: 260px; }
-  .floating-badge { padding: 8px 12px; font-size: 0.8rem; }
-  .badge-1 { left: -10px; }
-  .badge-2 { right: -10px; }
-                   }
+
+  /* Fix posisi badge di HP biar gak nutupin muka & gak keluar layar */
+  .about-visual {
+    padding: 50px 20px;
+  }
+  
+  .badge-1 { 
+    top: -30px; 
+    left: 0; 
+    padding: 8px 12px;
+  }
+  
+  .badge-2 { 
+    bottom: -30px; 
+    right: 0; 
+    padding: 8px 12px;
+  }
+  
+  .floating-badge strong {
+    font-size: 0.78rem;
+  }
+  
+  .floating-badge small {
+    font-size: 0.68rem;
+  }
+  
+  .badge-emoji {
+    font-size: 1.2rem;
+  }
+}
