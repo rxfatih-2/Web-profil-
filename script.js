@@ -1,62 +1,121 @@
-// ===== NAVBAR SCROLL EFFECT =====
+// ========== NAVBAR SCROLL ==========
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ========== MOBILE MENU ==========
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navMenu.classList.remove('active'));
+});
+
+// ========== TYPED TEXT ==========
+const typedEl = document.getElementById('typed-text');
+const roles = ['Frontend Developer', 'Creative Coder', 'Problem Solver', 'UI Enthusiast'];
+let roleIndex = 0, charIndex = 0, isDeleting = false;
+
+function typeLoop() {
+  const current = roles[roleIndex];
+  typedEl.textContent = isDeleting
+    ? current.substring(0, charIndex--)
+    : current.substring(0, charIndex++);
+
+  let speed = isDeleting ? 50 : 100;
+
+  if (!isDeleting && charIndex === current.length + 1) {
+    isDeleting = true;
+    speed = 1500;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    roleIndex = (roleIndex + 1) % roles.length;
+    speed = 400;
   }
-});
+  setTimeout(typeLoop, speed);
+}
+typeLoop();
 
-// ===== HERO ANIMATION ON LOAD =====
-window.addEventListener('load', () => {
-  document.getElementById('photoWrapper').classList.add('show');
-  document.getElementById('heroText').classList.add('show');
-});
-
-// ===== SCROLL REVEAL =====
-const revealElements = document.querySelectorAll('.reveal, .timeline-item, blockquote');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+// ========== REVEAL ON SCROLL ==========
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      revealObs.unobserve(e.target);
     }
   });
-}, { threshold: 0.15 });
-revealElements.forEach(el => revealObserver.observe(el));
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => revealObs.observe(el));
 
-// ===== BACKSOUND AUTOPLAY =====
+// ========== COUNTER ANIMATION ==========
+const counters = document.querySelectorAll('.stat-num');
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = +el.dataset.count;
+      let current = 0;
+      const step = target / 40;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          el.textContent = target;
+          clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(current);
+        }
+      }, 25);
+      counterObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObs.observe(c));
+
+// ========== SKILL BAR ANIMATION ==========
+const skillFills = document.querySelectorAll('.skill-fill');
+const skillObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      el.style.width = el.dataset.width + '%';
+      skillObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.3 });
+skillFills.forEach(s => skillObs.observe(s));
+
+// ========== BACKGROUND MUSIC ==========
 const bgMusic = document.getElementById('bgMusic');
-bgMusic.volume = 0.5;
+if (bgMusic) {
+  bgMusic.volume = 0.35;
 
-// Cek apakah elemen audio ketemu
-console.log('🎵 Elemen audio:', bgMusic);
-console.log('🎵 Sumber MP3:', bgMusic.querySelector('source')?.src);
+  const tryPlay = () => {
+    bgMusic.play()
+      .then(() => console.log('🎵 Music playing'))
+      .catch(err => console.log('🔇 Autoplay blocked:', err.name));
+  };
 
-// Fungsi play musik
-function playMusic() {
-  const playPromise = bgMusic.play();
-  
-  if (playPromise !== undefined) {
-    playPromise
-      .then(() => {
-        console.log('✅ Musik berhasil diputar!');
-      })
-      .catch(err => {
-        console.log('❌ Gagal play:', err.name, '-', err.message);
-      });
-  }
+  window.addEventListener('load', tryPlay);
+
+  ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
+    document.addEventListener(evt, function once() {
+      if (bgMusic.paused) tryPlay();
+      document.removeEventListener(evt, once);
+    }, { once: true, passive: true });
+  });
 }
 
-// Coba play saat halaman load
-window.addEventListener('load', playMusic);
-window.addEventListener('DOMContentLoaded', playMusic);
-document.addEventListener('click', playMusic, { once: true });
-document.addEventListener('touchstart', playMusic, { once: true });
-document.addEventListener('scroll', playMusic, { once: true });
-document.addEventListener('keydown', playMusic, { once: true });
-
-// Cek status audio setiap 2 detik
-setInterval(() => {
-  console.log('📊 Status musik → paused:', bgMusic.paused, '| currentTime:', bgMusic.currentTime.toFixed(2), '| readyState:', bgMusic.readyState);
-}, 2000);
+// ========== SMOOTH ANCHOR (fallback) ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+    }
+  });
+});
